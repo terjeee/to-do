@@ -1,8 +1,14 @@
+@use "./styles/variables.scss";
+
 .app {
   min-height: 100vh;
+  background: variables.$color-main;
 
-  .container {
+  .maxwidth {
     margin: auto;
     max-width: 1200px;
+    min-height: inherit;
+    padding: 0 0.75rem;
+    display: flex;
   }
 }
