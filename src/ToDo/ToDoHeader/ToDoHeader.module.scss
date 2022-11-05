@@ -1,0 +1,31 @@
+@use "../../styles/variables.scss";
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+
+  .title__text {
+    font-size: 1.25rem;
+    letter-spacing: 2.5px;
+    // font-family: "Times New Roman", Times, serif;
+  }
+
+  button {
+    width: 2.75rem;
+    background: none;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  svg {
+    display: block;
+  }
+}

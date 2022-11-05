@@ -1,0 +1,10 @@
+@use "../styles/variables.scss";
+
+.todo {
+  background: variables.$color-white;
+  width: clamp(40vw, 30rem, 90vw);
+  margin: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: variables.$box-shadow;
+}

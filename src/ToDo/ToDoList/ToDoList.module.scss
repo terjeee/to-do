@@ -1,0 +1,9 @@
+.list {
+  li {
+    list-style-position: inside;
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
