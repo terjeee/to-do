@@ -3,8 +3,14 @@
 .todo {
   background: variables.$color-white;
   width: clamp(40vw, 30rem, 90vw);
-  margin: auto;
   padding: 2rem;
-  border-radius: 20px;
+  margin: auto;
+  border-radius: variables.$border-radius;
   box-shadow: variables.$box-shadow;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
