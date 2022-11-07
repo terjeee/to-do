@@ -1,0 +1,17 @@
+@use "../../styles/variables.scss";
+
+.btn {
+  width: 2.75rem;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+svg {
+  display: block;
+}
