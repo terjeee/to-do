@@ -1,4 +1,8 @@
-const IconPlus = (props: { style?: {} }) => (
+interface Props {
+  style?: { fill?: string };
+}
+
+const IconPlus = (props: Props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" xmlSpace="preserve" {...props}>
     <circle
       style={{
