@@ -1,12 +1,12 @@
 @use "../styles/variables.scss";
 
 .todo {
-  background: variables.$color-white;
+  margin: 5rem auto;
   width: clamp(40vw, 30rem, 90vw);
   padding: 2rem;
-  margin: auto;
-  border-radius: variables.$border-radius;
-  box-shadow: variables.$box-shadow;
+  // border-radius: variables.$border-radius;
+  // background: variables.$color-white;
+  // box-shadow: variables.$box-shadow;
 
   header {
     display: flex;
