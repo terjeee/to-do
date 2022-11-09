@@ -1,17 +1,48 @@
 @use "../../styles/variables.scss";
 
-.btn {
-  width: 2.75rem;
-  background: none;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
-  &:hover {
-    opacity: 0.9;
+  .title {
+    h1 {
+      margin-bottom: -7.55px;
+      font-size: 2.5rem;
+      font-weight: bolder;
+      letter-spacing: 0.5rem;
+    }
+  }
+
+  .btn {
+    width: 2.75rem;
+    background: none;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  svg {
+    display: block;
   }
 }
 
-svg {
-  display: block;
+.inputField {
+  input,
+  button {
+    padding: 0.25rem;
+    font-size: 1rem;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  button {
+    width: 20%;
+  }
 }
