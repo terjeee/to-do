@@ -7,7 +7,7 @@ interface State {
   active: boolean;
 }
 
-const initialState: State[] = [];
+const initialState: State[] = JSON.parse(String(localStorage.getItem("todo")));
 
 const sliceToDo = createSlice({
   name: "ToDo",
@@ -21,7 +21,6 @@ const sliceToDo = createSlice({
         if (todo.id === action.payload.id) {
           return { ...todo, active: !todo.active };
         }
-
         return todo;
       }),
     TODO_REMOVE: (state, action: PayloadAction<{ id: string }>) => {
@@ -30,11 +29,11 @@ const sliceToDo = createSlice({
   },
 });
 
-// export stateToDo
+// export state
 type RootState = ReturnType<typeof store.getState>;
 export const stateToDo = (state: RootState) => state.todo;
 
-// export actionToDo
+// export actions
 export const { TODO_ADD, TODO_TOGGLE_INACTIVE, TODO_REMOVE } = sliceToDo.actions;
 
 // export til store.ts

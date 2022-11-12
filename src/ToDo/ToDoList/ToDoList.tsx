@@ -15,6 +15,10 @@ export default function ToDoList() {
     setFilter(String(event.currentTarget.getAttribute("data-filter")));
   };
 
+  useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(toDoList));
+  }, [toDoList]);
+
   return (
     <div className={styles.list}>
       <ul>
