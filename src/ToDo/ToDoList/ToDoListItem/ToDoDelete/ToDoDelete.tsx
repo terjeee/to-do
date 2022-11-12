@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { TODO_REMOVE } from "../../store/slices/sliceToDo";
+import { TODO_REMOVE } from "../../../../store/slices/sliceToDo";
 
 interface Props {
   id: string;
