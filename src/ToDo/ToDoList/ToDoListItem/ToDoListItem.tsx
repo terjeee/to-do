@@ -3,19 +3,19 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { TODO_TOGGLE_INACTIVE } from "../../../store/slices/sliceToDo";
 
-import ToDoDelete from "../../../components/LisItem/ToDoDelete";
+import ToDoDelete from "./ToDoDelete/ToDoDelete";
 
 import styles from "./ToDoListItem.module.scss";
 
 interface Props {
   id: string;
   todo: string;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  active: boolean;
 }
 
 function ToDoListItem(props: Props) {
   const reduxDispatch = useDispatch();
-  const [radioChecked, setRadioChecked] = useState(false);
+  const [radioChecked, setRadioChecked] = useState(props.active);
 
   const handleToggleActive = () => {
     reduxDispatch(TODO_TOGGLE_INACTIVE({ id: props.id }));
@@ -25,7 +25,7 @@ function ToDoListItem(props: Props) {
   return (
     <li id={props.id}>
       <label htmlFor="checkbox" onClick={handleToggleActive}>
-        <input type="checkbox" name="checkbox" checked={radioChecked} readOnly />
+        <input type="checkbox" name="checkbox" checked={!radioChecked} readOnly />
         {props.todo}
       </label>
       <ToDoDelete id={props.id} />
