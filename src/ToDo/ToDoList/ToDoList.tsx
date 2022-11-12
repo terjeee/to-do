@@ -1,47 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import ToDoListItem from "./components/ToDoListItem";
+import { useSelector } from "react-redux";
+import { stateToDo } from "../../store/slices/sliceToDo";
+
+import ToDoListItem from "./ToDoListItem/ToDoListItem";
 
 import styles from "./ToDoList.module.scss";
 
-interface Props {
-  list: { id: string; todo: string; active: boolean }[];
-}
+export default function ToDoList() {
+  const toDoList = useSelector(stateToDo);
+  const [filter, setFilter] = useState("all");
 
-export default function ToDoList(props: Props) {
-  const [displayList, setDisplayList] = useState("all");
+  const handleSetFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setFilter(String(event.currentTarget.getAttribute("data-filter")));
+  };
 
   return (
-    <div>
-      {displayList === "all" && (
-        <ul className={styles.list}>
-          {props.list.map((todo) => (
-            <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} />
+    <div className={styles.list}>
+      <ul>
+        {toDoList
+          .filter((todo) => {
+            if (filter === "all") return todo;
+            return filter === "active" ? todo.active : !todo.active;
+          })
+          .map((todo) => (
+            <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} active={todo.active} />
           ))}
-        </ul>
-      )}
-      {displayList === "active" && (
-        <ul>
-          {props.list
-            .filter((todo) => todo.active)
-            .map((todo) => (
-              <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} />
-            ))}
-        </ul>
-      )}
-      {displayList === "completed" && (
-        <ul>
-          {props.list
-            .filter((todo) => !todo.active)
-            .map((todo) => (
-              <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} />
-            ))}
-        </ul>
-      )}
-      <div>
-        <button onClick={() => setDisplayList("all")}>All</button>
-        <button onClick={() => setDisplayList("active")}>Active</button>
-        <button onClick={() => setDisplayList("completed")}>Completed</button>
+      </ul>
+      <div className={styles.control}>
+        <button onClick={handleSetFilter} data-filter={"all"}>
+          All
+        </button>
+        <button onClick={handleSetFilter} data-filter={"active"}>
+          Active
+        </button>
+        <button onClick={handleSetFilter} data-filter={"completed"}>
+          Completed
+        </button>
       </div>
     </div>
   );
