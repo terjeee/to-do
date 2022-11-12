@@ -6,7 +6,7 @@ const IconMinus = (props: Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 52 52"
-    style={{ fill: "#064789" }}
+    style={{ fill: "red" }}
     xmlSpace="preserve"
     {...props}
   >
