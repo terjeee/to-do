@@ -32,17 +32,20 @@
 }
 
 .inputField {
-  input,
-  button {
-    padding: 0.25rem;
-    font-size: 1rem;
-  }
+  margin: 2rem 0;
 
   input {
-    width: 80%;
-  }
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: variables.$font-family-2;
+    outline-style: none;
+    border: none;
+    outline: 1px solid variables.$color-lightgrey;
+    border-radius: variables.$border-radius;
 
-  button {
-    width: 20%;
+    &:focus {
+      outline: 1px solid variables.$color-highlight;
+    }
   }
 }
