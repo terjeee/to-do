@@ -19,17 +19,17 @@ export default function ToDoList() {
     localStorage.setItem("todo", JSON.stringify(toDoList));
   }, [toDoList]);
 
+  const filteredList = toDoList.filter((todo) => {
+    if (filter === "all") return todo;
+    return filter === "active" ? todo.active : !todo.active;
+  });
+
   return (
     <div className={styles.list}>
       <ul>
-        {toDoList
-          .filter((todo) => {
-            if (filter === "all") return todo;
-            return filter === "active" ? todo.active : !todo.active;
-          })
-          .map((todo) => (
-            <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} active={todo.active} />
-          ))}
+        {filteredList.map((todo) => (
+          <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} active={todo.active} />
+        ))}
       </ul>
       <div className={styles.control}>
         <button onClick={handleSetFilter} data-filter={"all"}>
