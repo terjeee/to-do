@@ -23,7 +23,7 @@ function ToDoListItem(props: Props) {
   };
 
   return (
-    <li id={props.id}>
+    <li className={styles.listItem} id={props.id}>
       <label htmlFor="checkbox" onClick={handleToggleActive}>
         <input type="checkbox" name="checkbox" checked={!radioChecked} readOnly />
         {props.todo}
