@@ -1,4 +1,23 @@
+@use "../../../styles/variables.scss";
+
 .listItem {
   display: flex;
   justify-content: space-between;
+
+  &:not(:last-child) {
+    border-bottom: 0.5px grey solid;
+  }
+
+  label {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+
+    p {
+      padding: 1rem 0;
+      font-family: variables.$font-family-2;
+      font-size: 1.25rem;
+    }
+  }
 }

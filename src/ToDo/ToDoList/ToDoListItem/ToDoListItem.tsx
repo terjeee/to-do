@@ -26,7 +26,7 @@ function ToDoListItem(props: Props) {
     <li className={styles.listItem} id={props.id}>
       <label htmlFor="checkbox" onClick={handleToggleActive}>
         <input type="checkbox" name="checkbox" checked={!radioChecked} readOnly />
-        {props.todo}
+        <p>{props.todo}</p>
       </label>
       <ToDoDelete id={props.id} />
     </li>
