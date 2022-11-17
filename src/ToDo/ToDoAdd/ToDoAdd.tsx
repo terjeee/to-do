@@ -54,7 +54,7 @@ export default function ToDoHeader() {
       </div>
       {showInput && (
         <form className={styles.inputField} onSubmit={handleSubmitToDo}>
-          <input onChange={handleSetInput} spellCheck="false" autoFocus />
+          <input value={input} onChange={handleSetInput} spellCheck="false" autoFocus />
           {error && <p className={styles.error}>Entry needs to be between 5-45 characters</p>}
         </form>
       )}
