@@ -20,32 +20,48 @@
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    align-self: center;
 
     &:hover {
       opacity: 0.9;
     }
   }
+}
 
-  svg {
-    display: block;
+.form {
+  .inputField {
+    margin-top: 2rem;
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: variables.$border-radius;
+      outline: 1px solid black;
+    }
+
+    button {
+      position: absolute;
+      padding: 0.5rem;
+      height: 100%;
+      right: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        height: 100%;
+      }
+    }
   }
 }
 
-.inputField {
-  margin: 2rem 0;
-
-  input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-family: variables.$font-family-2;
-    outline-style: none;
-    border: none;
-    outline: 1px solid variables.$color-lightgrey;
-    border-radius: variables.$border-radius;
-
-    &:focus {
-      outline: 1px solid variables.$color-highlight;
-    }
+.error {
+  .errorMsg {
+    padding: 0.25rem;
+    font-size: 0.9rem;
+    color: red;
   }
 }

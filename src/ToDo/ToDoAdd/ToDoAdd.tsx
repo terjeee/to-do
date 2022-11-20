@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { TODO_ADD } from "../../store/slices/sliceToDo";
 
 import CurrentDate from "./CurrentDate/CurrentDate";
-import { IconPlus, IconMinus } from "../../assets/index";
+import { IconAdd } from "../../assets/index";
 
 import styles from "./ToDoAdd.module.scss";
+import Slider from "../../components/Slider";
 
 export default function ToDoHeader() {
   const dispatch = useDispatch();
@@ -25,9 +26,9 @@ export default function ToDoHeader() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (input.length === 0) return setError(false);
-      if (input.length < 5 || input.length > 45) return setError(true);
+      if (input.length < 2 || input.length > 45) return setError(true);
       setError(false);
-    }, 500);
+    }, 250);
 
     return () => clearTimeout(timeout);
   }, [input]);
@@ -35,6 +36,7 @@ export default function ToDoHeader() {
   const handleSubmitToDo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (error) return;
+    if (input.length === 0) return setError(true);
 
     setError(false);
     dispatch(TODO_ADD({ todo: input }));
@@ -48,15 +50,24 @@ export default function ToDoHeader() {
           <CurrentDate />
           <h1>TODO</h1>
         </div>
-        <button className={styles.btn} onClick={toggleShowInput}>
-          {!showInput ? <IconPlus /> : <IconMinus />}
-        </button>
+        <Slider onChange={toggleShowInput} checked={true} />
       </div>
       {showInput && (
-        <form className={styles.inputField} onSubmit={handleSubmitToDo}>
-          <input value={input} onChange={handleSetInput} spellCheck="false" autoFocus />
-          {error && <p className={styles.error}>Entry needs to be between 5-45 characters</p>}
-        </form>
+        <>
+          <div className={`${styles.form} ${styles.error}`}>
+            <form className={styles.inputField} onSubmit={handleSubmitToDo}>
+              <input value={input} onChange={handleSetInput} spellCheck="false" autoFocus />
+              {input.length > 1 && !error && (
+                <button>
+                  <IconAdd />
+                </button>
+              )}
+            </form>
+            {error && (
+              <p className={styles.errorMsg}>Entry needs to be between 2-45 characters</p>
+            )}
+          </div>
+        </>
       )}
     </>
   );
