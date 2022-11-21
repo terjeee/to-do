@@ -36,9 +36,8 @@
       width: 100%;
       padding: 0.5rem 0.75rem;
       font-size: 1rem;
-      border: none;
+      border: 0.5px solid black;
       border-radius: variables.$border-radius;
-      outline: 1px solid black;
     }
 
     button {
