@@ -4,6 +4,9 @@
   min-height: 100vh;
 
   .maxwidth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     max-width: 1200px;
     min-height: inherit;
