@@ -16,7 +16,7 @@ interface Props {
 function ToDoListItem(props: Props) {
   const reduxDispatch = useDispatch();
   const [toDoActive, setToDoActive] = useState(props.active);
-  const [showDelete, setShowDelete] = useState(true);
+  const [showDelete, setShowDelete] = useState(false);
   const [cssCheckedHover, setCssCheckedHover] = useState("");
 
   const handleToggleActiveToDo = () => {
@@ -25,7 +25,7 @@ function ToDoListItem(props: Props) {
   };
 
   function handleToggleDeleteBtn() {
-    // setShowDelete((prevState) => (prevState ? false : true));
+    setShowDelete((prevState) => (prevState ? false : true));
     setCssCheckedHover((prevState) => (prevState === "" ? "checkedHover" : ""));
   }
 
