@@ -7,7 +7,7 @@ interface State {
   active: boolean;
 }
 
-const initialState: State[] = JSON.parse(String(localStorage.getItem("todo")));
+const initialState: State[] = JSON.parse(String(localStorage.getItem("todo"))) || [];
 
 const sliceToDo = createSlice({
   name: "ToDo",
