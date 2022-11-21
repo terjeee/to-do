@@ -24,6 +24,8 @@ export default function ToDoList() {
     return filter === "active" ? todo.active : !todo.active;
   });
 
+  const cssActiveFilter = (val: string) => (filter === val ? "activeFilter" : "");
+
   return (
     <div className={styles.list}>
       <ul>
@@ -32,13 +34,25 @@ export default function ToDoList() {
         ))}
       </ul>
       <div className={styles.control}>
-        <button onClick={handleSetFilter} data-filter={"all"}>
+        <button
+          onClick={handleSetFilter}
+          className={styles[cssActiveFilter("all")]}
+          data-filter={"all"}
+        >
           All
         </button>
-        <button onClick={handleSetFilter} data-filter={"active"}>
+        <button
+          onClick={handleSetFilter}
+          className={styles[cssActiveFilter("active")]}
+          data-filter={"active"}
+        >
           Active
         </button>
-        <button onClick={handleSetFilter} data-filter={"completed"}>
+        <button
+          onClick={handleSetFilter}
+          className={styles[cssActiveFilter("completed")]}
+          data-filter={"completed"}
+        >
           Completed
         </button>
       </div>

@@ -1,6 +1,8 @@
 @use "../../styles/variables.scss";
 
 .list {
+  margin-top: 1.25rem;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -18,7 +20,11 @@
       cursor: pointer;
 
       &:hover {
-        color: variables.$color-lightgrey;
+        text-decoration: underline;
+      }
+
+      &.activeFilter {
+        text-decoration: underline;
       }
     }
   }
