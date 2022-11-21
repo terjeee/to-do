@@ -29,7 +29,7 @@ export default function ToDoList() {
   return (
     <div className={styles.list}>
       <ul>
-        {filteredList.map((todo) => (
+        {filteredList?.map((todo) => (
           <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} active={todo.active} />
         ))}
       </ul>
