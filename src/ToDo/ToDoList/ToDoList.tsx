@@ -19,7 +19,7 @@ export default function ToDoList() {
     localStorage.setItem("todo", JSON.stringify(toDoList));
   }, [toDoList]);
 
-  const filteredList = toDoList.filter((todo) => {
+  const filteredList = toDoList?.filter((todo) => {
     if (filter === "all") return todo;
     return filter === "active" ? todo.active : !todo.active;
   });
