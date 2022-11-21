@@ -50,7 +50,7 @@ export default function ToDoHeader() {
           <CurrentDate />
           <h1>TODO</h1>
         </div>
-        <Slider onChange={toggleShowInput} checked={true} />
+        <Slider onChange={toggleShowInput} checked={showInput} />
       </div>
       {showInput && (
         <>
