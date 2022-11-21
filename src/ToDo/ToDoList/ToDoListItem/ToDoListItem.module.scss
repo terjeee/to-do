@@ -28,11 +28,11 @@
       cursor: pointer;
     }
 
-    input[type="checkbox"]:checked::after {
+    input[type="checkbox"]:checked:after {
       content: "";
       background-color: variables.$color-blue;
-      height: 0.6rem;
-      width: 0.6rem;
+      height: 0.5rem;
+      width: 0.5rem;
       border-radius: 50%;
     }
 
