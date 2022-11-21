@@ -56,7 +56,7 @@ export default function ToDoHeader() {
         <>
           <div className={`${styles.form} ${styles.error}`}>
             <form className={styles.inputField} onSubmit={handleSubmitToDo}>
-              <input value={input} onChange={handleSetInput} spellCheck="false" autoFocus />
+              <input value={input} onChange={handleSetInput} spellCheck="false" />
               {input.length > 1 && !error && (
                 <button>
                   <IconAdd />
