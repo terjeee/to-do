@@ -1,8 +1,8 @@
 @use "../styles/variables.scss";
 
 .todo {
-  margin: 10rem auto;
-  width: clamp(25vw, 25rem, 90vw);
+  width: clamp(20vw, 25rem, 90vw);
+
   padding: 2rem;
   border-radius: variables.$border-radius;
   box-shadow: variables.$box-shadow;
