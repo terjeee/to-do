@@ -1,12 +1,18 @@
 @use ".././../../../styles/variables.scss";
 
 .btnDelete {
+  width: 17.5px;
   background: none;
   border: none;
   cursor: pointer;
 
-  &:hover {
+  &:hover svg {
     color: variables.$color-lightgrey;
-    transform: scale(1.25);
+    transform: scale(1.075);
+  }
+
+  svg {
+    display: block;
+    width: 100%;
   }
 }
