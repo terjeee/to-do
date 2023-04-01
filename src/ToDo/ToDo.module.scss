@@ -4,8 +4,7 @@
   width: clamp(20vw, 25rem, 90vw);
 
   padding: 2rem;
-  border-radius: variables.$border-radius;
-  box-shadow: variables.$box-shadow;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   header {
     display: flex;

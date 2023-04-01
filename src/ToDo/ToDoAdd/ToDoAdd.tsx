@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { TODO_ADD } from "../../store/slices/sliceToDo";
 
 import CurrentDate from "./CurrentDate/CurrentDate";
-import { IconAdd } from "../../assets/index";
 
 import styles from "./ToDoAdd.module.scss";
 import Slider from "../../components/Slider";
@@ -57,15 +56,9 @@ export default function ToDoHeader() {
           <div className={`${styles.form} ${styles.error}`}>
             <form className={styles.inputField} onSubmit={handleSubmitToDo}>
               <input value={input} onChange={handleSetInput} spellCheck="false" />
-              {input.length > 1 && !error && (
-                <button>
-                  <IconAdd />
-                </button>
-              )}
+              {/* {input.length > 1 && !error && <button></button>} */}
             </form>
-            {error && (
-              <p className={styles.errorMsg}>Entry needs to be between 2-45 characters</p>
-            )}
+            {error && <p className={styles.errorMsg}>Entry needs to be between 2-45 characters</p>}
           </div>
         </>
       )}

@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
 import { TODO_REMOVE } from "../../../../store/slices/sliceToDo";
 
-import { IconDelete2 } from "../../../../assets";
-
 import styles from "./ToDoDelete.module.scss";
 
 interface Props {
@@ -19,7 +17,7 @@ function ToDoDelete(props: Props) {
 
   return (
     <button className={styles.btnDelete} id={props.id} onClick={handleDeleteToDo}>
-      <IconDelete2 />
+      ❌
     </button>
   );
 }

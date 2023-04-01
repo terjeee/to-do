@@ -16,33 +16,21 @@ interface Props {
 function ToDoListItem(props: Props) {
   const reduxDispatch = useDispatch();
   const [toDoActive, setToDoActive] = useState(props.active);
-  const [showDelete, setShowDelete] = useState(false);
-  const [cssCheckedHover, setCssCheckedHover] = useState("");
 
   const handleToggleActiveToDo = () => {
     reduxDispatch(TODO_TOGGLE_INACTIVE({ id: props.id }));
     setToDoActive((state) => !state);
   };
 
-  function handleToggleDeleteBtn() {
-    setShowDelete((prevState) => (prevState ? false : true));
-    setCssCheckedHover((prevState) => (prevState === "" ? "checkedHover" : ""));
-  }
-
   const cssChecked = !toDoActive ? "checked" : "";
 
   return (
-    <li
-      className={`${styles.listItem} ${styles[cssChecked]} ${styles[cssCheckedHover]}`}
-      id={props.id}
-      onMouseEnter={handleToggleDeleteBtn}
-      onMouseLeave={handleToggleDeleteBtn}
-    >
+    <li className={`${styles.listItem} ${styles[cssChecked]}`} id={props.id}>
       <label htmlFor="checkbox" onClick={handleToggleActiveToDo}>
         <input type="checkbox" name="checkbox" checked={!toDoActive} readOnly />
         <p className={styles.todoText}>{props.todo}</p>
       </label>
-      {showDelete && <ToDoDelete id={props.id} />}
+      <ToDoDelete id={props.id} />
     </li>
   );
 }

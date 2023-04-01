@@ -21,11 +21,13 @@
       cursor: pointer;
 
       &:hover {
-        font-weight: bold;
+        transform: scale(1.075);
       }
 
       &.activeFilter {
-        font-weight: bold;
+        // font-weight: bold;
+        // color: green;
+        text-decoration: underline;
       }
     }
   }

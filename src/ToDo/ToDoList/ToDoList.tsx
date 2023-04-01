@@ -34,26 +34,14 @@ export default function ToDoList() {
         ))}
       </ul>
       <div className={styles.control}>
-        <button
-          onClick={handleSetFilter}
-          className={styles[cssActiveFilter("all")]}
-          data-filter={"all"}
-        >
-          All
+        <button onClick={handleSetFilter} className={styles[cssActiveFilter("all")]} data-filter={"all"}>
+          all
         </button>
-        <button
-          onClick={handleSetFilter}
-          className={styles[cssActiveFilter("active")]}
-          data-filter={"active"}
-        >
-          Active
+        <button onClick={handleSetFilter} className={styles[cssActiveFilter("active")]} data-filter={"active"}>
+          active
         </button>
-        <button
-          onClick={handleSetFilter}
-          className={styles[cssActiveFilter("completed")]}
-          data-filter={"completed"}
-        >
-          Completed
+        <button onClick={handleSetFilter} className={styles[cssActiveFilter("completed")]} data-filter={"completed"}>
+          completed
         </button>
       </div>
     </div>
