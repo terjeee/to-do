@@ -16,6 +16,7 @@ const sliceToDo = createSlice({
     TODO_ADD: (state, action: PayloadAction<{ todo: string }>) => {
       state.push({ id: String(Date.now()), todo: action.payload.todo, active: true });
     },
+
     TODO_TOGGLE_INACTIVE: (state, action: PayloadAction<{ id: string }>) =>
       state.map((todo) => {
         if (todo.id === action.payload.id) {
@@ -23,6 +24,7 @@ const sliceToDo = createSlice({
         }
         return todo;
       }),
+
     TODO_REMOVE: (state, action: PayloadAction<{ id: string }>) => {
       return state.filter((todo) => todo.id !== action.payload.id);
     },
