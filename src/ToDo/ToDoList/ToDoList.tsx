@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import { useSelector } from "react-redux";
 import { stateToDo } from "../../store/slices/sliceToDo";
-
 import ToDoListItem from "./ToDoListItem/ToDoListItem";
 
 import styles from "./ToDoList.module.scss";
 
 export default function ToDoList() {
+  const [parent] = useAutoAnimate();
+
   const toDoList = useSelector(stateToDo);
   const [filter, setFilter] = useState("all");
 
-  const handleSetFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
+  function handleSetFilter(event: React.MouseEvent<HTMLButtonElement>) {
     setFilter(String(event.currentTarget.getAttribute("data-filter")));
-  };
+  }
 
   useEffect(() => {
     localStorage.setItem("todo", JSON.stringify(toDoList));
@@ -28,7 +30,7 @@ export default function ToDoList() {
 
   return (
     <div className={styles.list}>
-      <ul>
+      <ul ref={parent}>
         {filteredList?.map((todo) => (
           <ToDoListItem key={todo.id} id={todo.id} todo={todo.todo} active={todo.active} />
         ))}
